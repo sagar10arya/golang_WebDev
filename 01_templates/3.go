@@ -1,0 +1,28 @@
+// package text/template : parsing and executing templates
+
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"text/template"
+)
+
+func main() {
+	tpl, err := template.ParseFiles("tpl.gohtml")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	nf, err := os.Create("index.html")
+	if err != nil {
+		fmt.Println("Error Creating a file", err)
+	}
+	defer nf.Close()
+
+	err = tpl.Execute(os.Stdout, nil)
+	if err != nil {
+		log.Fatalln(err)
+	}
+}

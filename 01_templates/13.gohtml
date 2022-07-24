@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+	<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+    <title>function in templates!</title>
+	<body>
+    
+    {{.Fall.Term}}<br>
+    {{range .Fall.Courses}}
+    {{.Number}} - {{.Name}} - {{.Units}}<br>
+    {{end}}
+
+    {{.Spring.Term}}<br>
+    {{range .Fall.Courses}}
+    {{.Number}} - {{.Name}} - {{.Units}}<br>
+    {{end}}
+
+	</body>
+	</head>
